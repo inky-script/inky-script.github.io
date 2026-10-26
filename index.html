@@ -302,7 +302,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:40px 0}
       <div class="stat reveal d1"><b class="grad" data-count-projects>0</b><span>academic projects</span></div>
       <div class="stat reveal d2"><b class="grad" data-count="4904">0</b><span>records segmented in research</span></div>
       <div class="stat reveal d1"><b class="grad" data-count="8">0</b><span>dashboard modules built</span></div>
-      <div class="stat reveal d2"><b class="grad" data-count="1">0</b><span>team led as Project Leader</span></div>
+      <div class="stat reveal d2"><b class="grad" data-count-repos>0</b><span>projects with public code</span></div>
     </div>
   </div>
 </section>
@@ -435,20 +435,6 @@ const projects = [
     tech:["T-SQL","SSIS","SSAS","MDX","SSDT","Chart.js"]
   },
   {
-    cat:"ml", icon:"🖼️",
-    title:"Automated Old Photo Restoration with Deep Learning",
-    period:"Digital Image Processing course · 2026", team:4, role:"Project Leader",
-    repo:"https://github.com/inky-script/image_restoration",
-    short:"Led a 4-person team building a Streamlit web app that restores old family photos with GFPGAN + Real-ESRGAN.",
-    desc:"A Python web application that restores old, blurry photos by enhancing faces and increasing resolution while preserving each person's key features.",
-    resp:[
-      "Led the team: broke the scope into tasks, assigned work by member strengths and tracked progress to the deadline.",
-      "Collected and standardized the test image dataset; pre-processed images with OpenCV.",
-      "Coordinated integration of the restoration pipeline with the Streamlit interface and the evaluation with no-reference quality metrics."
-    ],
-    tech:["Python","OpenCV","PyTorch","GFPGAN","Real-ESRGAN","Streamlit"]
-  },
-  {
     cat:"ml", icon:"📦",
     title:"Sokoban Puzzle Game with AI Solver",
     period:"Artificial Intelligence course · 2026", team:6, role:"Team Member – Level / Map Designer",
@@ -492,12 +478,13 @@ const projects = [
 ];
 // project counters stay in sync with the list above
 document.querySelectorAll('[data-count-projects]').forEach(el=>el.dataset.count = projects.length);
+document.querySelectorAll('[data-count-repos]').forEach(el=>el.dataset.count = projects.filter(p=>p.repo).length);
 
 const skills = [
   {title:"📋 Business Analysis", items:[["Requirements & needs analysis",75],["KPI definition",75],["Business rule design",70],["Documentation & reporting",80]]},
   {title:"🗄️ Data & SQL", items:[["SQL",75],["Python (Pandas)",70],["Excel",75],["Database design",65]]},
   {title:"📊 BI & Warehouse", items:[["Power BI / DAX",65],["SSIS · SSAS · MDX",65],["Star schema modeling",70],["Streamlit",65]]},
-  {title:"🤖 Stats & AI tools", items:[["Statistics & hypothesis tests",70],["Clustering (K-Means)",70],["Prompting & AI validation",80],["OpenCV basics",55]]}
+  {title:"🤖 Stats & AI tools", items:[["Statistics & hypothesis tests",70],["Clustering (K-Means)",70],["Prompting & AI validation",80],["Data cleaning & validation",75]]}
 ];
 
 /* ================= RENDER PROJECTS ================= */
